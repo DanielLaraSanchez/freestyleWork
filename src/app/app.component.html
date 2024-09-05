@@ -1,12 +1,29 @@
 <div class="battlefield">
-  <mat-grid-list [cols]="gridCols" rowHeight="1:1" gutterSize="16px" class="grid">
-    <mat-grid-tile *ngFor="let user of onlineUsers">
-      <div class="user-content">
-        <div class="user-content-header">
-          <img class="user-avatar" [src]="user.profilePicture" [alt]="user.name" />
+  <div class="user-list">
+    <div class="user-grid">
+      <div class="user-item" *ngFor="let user of onlineUsers">
+        <div class="user-content">
+          <div class="user-content-header">
+            <img class="user-avatar" [src]="user.profilePicture" [alt]="user.name" />
+          </div>
+          <div class="user-name">{{ user.name }}</div>
         </div>
-        <div class="user-name">{{ user.name }}</div>
       </div>
-    </mat-grid-tile>
-  </mat-grid-list>
+    </div>
+  </div>
+  <div class="chat">
+    <div class="chat-window" #chatWindow>
+      <div class="message" *ngFor="let message of messages">
+        <div class="message-content">
+          <strong>{{ message.user }}</strong>: {{ message.text }}
+        </div>
+      </div>
+    </div>
+    <div class="chat-input">
+      <input [(ngModel)]="newMessage" (keyup.enter)="sendMessage()" placeholder="Type a message..." />
+      <button (click)="sendMessage()">
+        <mat-icon>send</mat-icon>
+      </button>
+    </div>
+  </div>
 </div>
