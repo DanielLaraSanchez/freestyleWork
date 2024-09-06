@@ -1,42 +1,36 @@
 html, body {
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-x: hidden;
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif; /* Use a professional modern font */
+  font-family: 'Roboto', sans-serif;
 }
 
 .battlefield {
   display: flex;
-  height: 100vh; /* Full height of the viewport */
-  overflow: hidden; /* Prevent overall vertical scrolling */
-  width: 100%; /* Full width */
-  box-sizing: border-box; /* Include padding and border in width and height calculations */
-}
-
-.user-list, .chat, .current-battles-container {
-  padding: 16px;
-  box-sizing: border-box; /* Include padding in element's total width/height */
+  height: 100vh;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  flex-direction: column; /* Default to column for mobile */
 }
 
 .user-list, .current-battles-container {
-  flex: 0 1 25%; /* User list and current battles take 25% each */
-  overflow-y: auto; /* Vertical scrolling */
-  background: #f4f4f4; /* Light background for better separation */
-  height: 100%; /* Full height */
-  scrollbar-width: none; /* Hide scrollbar in Firefox */
-  -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
-  border-radius: 4px; /* Matching rounded corners */
+  overflow-y: auto;
+  background: #f4f4f4;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  border-radius: 4px;
 }
 
 .user-list::-webkit-scrollbar, .current-battles-container::-webkit-scrollbar {
-  display: none; /* Hide scrollbar in WebKit browsers */
+  display: none;
 }
 
 .user-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)); /* Ensure max 4 users per row */
-  gap: 8px; /* Adjust the gap between items */
+  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+  gap: 8px;
 }
 
 .user-item {
@@ -52,7 +46,7 @@ html, body {
 
 .user-avatar {
   border-radius: 50%;
-  width: 50px; /* Smaller size for user list */
+  width: 50px;
   height: 50px;
   object-fit: cover;
 }
@@ -60,31 +54,28 @@ html, body {
 .user-name {
   margin-top: 4px;
   font-size: 11px;
-  color: #333; /* Professional color */
-  text-align: center; /* Center the user name */
+  color: #333;
+  text-align: center;
 }
 
 .chat {
-  flex: 1 1 auto; /* Chat adapts to remaining space */
+  flex: 1 1 auto; /* Take up remaining space in column layout */
   display: flex;
   flex-direction: column;
-  background: #fff; /* White background for chat area */
-  overflow: hidden; /* Prevent chat area itself from scrolling */
-  position: relative; /* Allows absolute positioning */
+  background: #fff;
+  overflow: hidden;
+  padding: 16px; /* Ensure it has padding */
+  box-sizing: border-box;
+  height: 40vh; /* Slightly reduced height */
 }
 
 .chat-window {
   flex: 1;
-  padding: 16px;
-  box-sizing: border-box; /* Include padding */
-  overflow-y: auto; /* Vertical scrolling */
-  scrollbar-width: none; /* Hide scrollbar in Firefox */
-  -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
-  padding-bottom: 100px; /* Ensure first message is visible */
+  overflow-y: auto;
 }
 
 .chat-window::-webkit-scrollbar {
-  display: none; /* Hide scrollbar in Chrome */
+  display: none;
 }
 
 .chat-input {
@@ -92,14 +83,9 @@ html, body {
   align-items: center;
   padding: 8px;
   border-top: 1px solid #e0e0e0;
-  background: #fff; /* White background */
-  position: fixed; /* Fixed at the bottom */
-  bottom: 0;
-  left: 25%; /* Align with the right edge of the user-list */
-  right: 25%; /* Adjust for the chat input */
-  width: 50%; /* Cover the remaining width */
-  box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.2); /* Subtle shadow for better separation */
-  box-sizing: border-box; /* Include padding */
+  background: #fff;
+  box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
 }
 
 .chat-input input {
@@ -110,12 +96,12 @@ html, body {
   margin-right: 8px;
   font-size: 16px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  transition: border-bottom 0.3s ease; /* Transition on focus */
+  transition: border-bottom 0.3s ease; 
 }
 
 .chat-input input:focus {
-  outline: none; /* No default outline */
-  border-bottom: 2px solid #3f51b5; /* Underline on focus */
+  outline: none;
+  border-bottom: 2px solid #3f51b5;
 }
 
 .chat-input button {
@@ -130,12 +116,12 @@ html, body {
   justify-content: center;
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Transition on hover */
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .chat-input button:hover {
-  background-color: #303f9f; /* Darken on hover */
-  transform: scale(1.1); /* Slightly enlarge on hover */
+  background-color: #303f9f;
+  transform: scale(1.1);
 }
 
 .chat-input button mat-icon {
@@ -144,14 +130,15 @@ html, body {
 
 .current-battles-container {
   padding: 16px;
-  border-radius: 4px; /* Match the same as the user list */
+  border-radius: 4px;
   background: #f4f4f4;
   display: flex;
-  flex-direction: column; /* Full height */
-  overflow-y: auto; /* Enable scrolling */
+  flex-direction: column;
+  overflow-y: auto;
+  height: 20vh;  /* Maintain height */
 }
 
-.current-battles h3 {
+.current-battles-container h3 {
   font-size: 18px;
   margin-top: 0;
 }
@@ -159,65 +146,59 @@ html, body {
 .battle {
   display: flex;
   align-items: center;
-  margin-bottom: 12px; /* Slightly larger spacing between pairs */
-  justify-content: space-evenly; /* Even spacing */
+  margin-bottom: 12px;
+  justify-content: space-evenly;
 }
 
 .user {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 8px; /* Spacing to center pairs */
+  flex-basis: 45%;
 }
 
 .battle .user-avatar {
-  width: 80px; /* Larger for current battles */
+  width: 80px;
   height: 80px;
-  margin-bottom: 8px; /* Adjust spacing above names */
+  margin-bottom: 8px;
 }
 
 .vs {
   font-size: 24px;
   font-weight: bold;
-  margin: 0 12px; /* Adjust the spacing between pairs */
-  text-align: center;
+  margin: 0;
 }
 
+/* Mobile specific adjustments */
 @media (max-width: 768px) {
-  .battlefield {
-    flex-direction: column;
-  }
-
-  .user-list, .chat, .current-battles-container {
-    flex: 1 1 auto;
-    padding: 0;
-  }
-
   .user-list {
-    height: 45%;
-    overflow-y: auto;
-    padding: 16px;
+    height: 32%; /* Slightly increased height */
+    padding: 10px;
   }
 
   .chat {
-    height: 55%;
-    overflow: hidden;
+    height: 35%; /* Slightly reduced height to balance layout */
   }
 
-  .chat-window {
-    height: calc(100% - 48px);
-    padding: 16px;
-    overflow-y: auto;
+  .current-battles-container {
+    height: 24%; /* Maintain height for visibility */
+
+  }
+}
+
+/* Desktop specific adjustments */
+@media (min-width: 769px) {
+  .battlefield {
+    flex-direction: row;
   }
 
-  .chat-input {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #fff;
-    padding: 8px;
-    border-top: 1px solid #e0e0e0;
-    width: 100%;
+  .user-list, .current-battles-container {
+    flex: 0 1 25%;
+    height: 100vh;
+  }
+
+  .chat {
+    flex: 1 1 50%; /* Central chat area should take up the available space */
+    height: auto;  /* Adjust to fit content height */
   }
 }
