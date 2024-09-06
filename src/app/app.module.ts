@@ -10,6 +10,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { BattlefieldPageComponent } from './pages/battlefield-page/battlefield-page.component';
 import { CurrentBattlesComponent } from './components/current-battles/current-battles.component';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { CurrentBattlesComponent } from './components/current-battles/current-ba
     MatCardModule,
     BrowserAnimationsModule,
     MatGridListModule,
-    MatIconModule 
+    MatIconModule,
+    MatDialogModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
