@@ -3,14 +3,13 @@
     <div class="user-grid">
       <div class="user-item" *ngFor="let user of onlineUsers">
         <div class="user-content">
-          <div class="user-content-header">
-            <img class="user-avatar" [src]="user.profilePicture" [alt]="user.name" />
-          </div>
+          <img class="user-avatar" [src]="user.profilePicture" [alt]="user.name" />
           <div class="user-name">{{ user.name }}</div>
         </div>
       </div>
     </div>
   </div>
+
   <div class="chat">
     <div class="chat-window" #chatWindow>
       <div class="message" *ngFor="let message of messages">
@@ -24,6 +23,21 @@
       <button (click)="sendMessage()">
         <mat-icon>send</mat-icon>
       </button>
+    </div>
+  </div>
+
+  <div class="current-battles-container">
+    <h3>Ongoing Rap Battles</h3>
+    <div *ngFor="let pair of pairs" class="battle">
+      <div class="user">
+        <img [src]="pair.user1.profilePicture" [alt]="pair.user1.name" class="user-avatar">
+        <div>{{ pair.user1.name }}</div>
+      </div>
+      <div class="vs">VS</div>
+      <div class="user">
+        <img [src]="pair.user2.profilePicture" [alt]="pair.user2.name" class="user-avatar">
+        <div>{{ pair.user2.name }}</div>
+      </div>
     </div>
   </div>
 </div>

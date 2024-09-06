@@ -4,6 +4,6 @@ export interface User {
   id: number;
   name: string;
   profilePicture: string;
-  stats: Stats;
+  // stats: Stats;
   points: number;
   }
